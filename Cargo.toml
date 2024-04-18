@@ -1,0 +1,19 @@
+[package]
+name = "ip_range_scanner"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version = "0.12"}
+serde = { version = "1.0.198", features = ["derive"]}
+serde_json = "1.0.116"
+tokio = { version = "1", features = ["full"] }
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
